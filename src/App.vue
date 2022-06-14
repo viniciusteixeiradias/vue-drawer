@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
+const showChildrens = ref(true)
 const open = ref(true)
 
 </script>
 
 <template>
-  <div class="sidebar">
+  <div class="sidebar" :class="open ? 'open' : 'close'">
     <div class="logo-details">
         <i class="fa-brands fa-codepen"></i>
       <span class="logo_name">CodingLab</span>
@@ -30,7 +31,7 @@ const open = ref(true)
           <li><a class="link_name" href="#">BID Opening</a></li>
         </ul>
       </li>
-      <li @click="open = !open" :class="open ? 'showMenu' : '' ">
+      <li @click="showChildrens = !showChildrens" :class="showChildrens ? 'showMenu' : '' ">
         <div class="icon-link">
           <a href="#">
             <i class="fas fa-coins"></i>
@@ -62,7 +63,7 @@ const open = ref(true)
           <li><a class="link_name" href="#">Categories</a></li>
         </ul>
       </li>
-      <li @click="open = !open" :class="open ? 'showMenu' : ''">
+      <li @click="showChildrens = !showChildrens" :class="showChildrens ? 'showMenu' : ''">
         <div class="icon-link">
           <a href="#">
             <i class="fas fa-book"></i>
@@ -115,7 +116,7 @@ const open = ref(true)
   </div>
   <section class="home-section">
     <div class="home-content">
-      <i class="fas fa-bars"></i>
+      <i @click="open = !open" class="fas fa-bars"></i>
       <span class="text">Drop Down Sidebar</span>
     </div>
   </section>
