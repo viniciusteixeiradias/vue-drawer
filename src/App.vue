@@ -1,8 +1,12 @@
 <script setup lang="ts">
+import { ref } from "vue";
+
+const open = ref(true)
+
 </script>
 
 <template>
-  <div class="sidebar close">
+  <div class="sidebar">
     <div class="logo-details">
         <i class="fa-brands fa-codepen"></i>
       <span class="logo_name">CodingLab</span>
@@ -26,16 +30,16 @@
           <li><a class="link_name" href="#">BID Opening</a></li>
         </ul>
       </li>
-      <li>
+      <li @click="open = !open" :class="open ? 'showMenu' : '' ">
         <div class="icon-link">
           <a href="#">
             <i class="fas fa-coins"></i>
-            <span class="link_name">BID Opening</span>
+            <span class="link_name">Quote Opening</span>
           </a>
-          <i class="fas fa-angle-down"></i>
+          <i class="fas fa-angle-down arrow"></i>
         </div>
         <ul class="sub-menu">
-          <li><a class="link_name" href="#">BID Opening</a></li>
+          <li><a class="link_name" href="#">Quote Opening</a></li>
           <li><a href="#">Quotation</a></li>
           <li><a href="#">Special Quote</a></li>
         </ul>
@@ -58,13 +62,13 @@
           <li><a class="link_name" href="#">Categories</a></li>
         </ul>
       </li>
-      <li>
+      <li @click="open = !open" :class="open ? 'showMenu' : ''">
         <div class="icon-link">
           <a href="#">
             <i class="fas fa-book"></i>
             <span class="link_name">Reports</span>
           </a>
-          <i class="fas fa-angle-down"></i>
+          <i class="fas fa-angle-down arrow"></i>
         </div>
         <ul class="sub-menu">
           <li><a class="link_name" href="#">Reports</a></li>
@@ -109,6 +113,12 @@
       </li>
     </ul>
   </div>
+  <section class="home-section">
+    <div class="home-content">
+      <i class="fas fa-bars"></i>
+      <span class="text">Drop Down Sidebar</span>
+    </div>
+  </section>
 </template>
 
 <style>
